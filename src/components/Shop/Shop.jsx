@@ -5,7 +5,7 @@ import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./shop.css";
 const Shop = () => {
-  const products = useLoaderData();
+  const { products } = useLoaderData();
   const [cart, setCart] = useState([]);
   useEffect(() => {
     const storedCart = getStoredCart();

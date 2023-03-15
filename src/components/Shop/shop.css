@@ -3,6 +3,7 @@
   grid-template-columns: 4fr 1fr;
   margin-top: 50px;
   position: relative;
+  grid-gap: 25px;
 }
 .product-container {
   display: grid;
