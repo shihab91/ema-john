@@ -1,7 +1,10 @@
 import React from "react";
 import { RiDeleteBin4Line, RiArrowRightLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
+import { deleteShoppingCart } from "../../../utilities/fakedb";
 import "./cart.css";
-const Cart = ({ cart }) => {
+const Cart = ({ cart, setCart }) => {
+  const navigate = useNavigate();
   const totalPrice = cart.reduce(
     (prev, curr) => prev + curr.price * curr.quantity,
     0
@@ -34,10 +37,15 @@ const Cart = ({ cart }) => {
         </h3>
       </div>
       <div className="buttons">
-        <button>
+        <button
+          onClick={() => {
+            setCart([]);
+            deleteShoppingCart();
+          }}
+        >
           Clear Cart <RiDeleteBin4Line />
         </button>
-        <button>
+        <button onClick={() => navigate("/orders")}>
           Review Order <RiArrowRightLine />
         </button>
       </div>

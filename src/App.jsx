@@ -30,6 +30,17 @@ function App() {
           path: "/inventory",
           element: <Inventory />,
         },
+        {
+          path: "*",
+          element: (
+            <div className="error-page container">
+              <h1>
+                404 <span style={{ color: "#FF9900" }}>|</span> Nothing here to
+                see
+              </h1>
+            </div>
+          ),
+        },
       ],
     },
   ]);

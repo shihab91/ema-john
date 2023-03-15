@@ -1,11 +1,12 @@
 import React from "react";
 import "./reviewItem.css";
-const ReviewItem = ({ product }) => {
-  const { name, img, id, price, quantity, shipping } = product;
+import { RiDeleteBin6Line } from "react-icons/ri";
+const ReviewItem = ({ product, handleRemoveItem }) => {
+  const { name, id, img, price, quantity, shipping } = product;
 
   return (
     <div className="review-item">
-      <div>
+      <div className="img">
         <img src={img} alt="" />
       </div>
       <div className="review-details-container">
@@ -15,12 +16,17 @@ const ReviewItem = ({ product }) => {
             <small>Price: ${price}</small>
           </p>
           <p>
+            <small>Quantity: {quantity}</small>
+          </p>
+          <p>
             <small>Shipping Charge: ${shipping}</small>
           </p>
         </div>
-      </div>
-      <div className="delete-container">
-        <button>delete</button>
+        <div className="delete-container">
+          <button onClick={() => handleRemoveItem(id)}>
+            <RiDeleteBin6Line />
+          </button>
+        </div>
       </div>
     </div>
   );
