@@ -9,14 +9,17 @@
   flex-direction: column;
   row-gap: 15px;
 }
-.buttons button {
-  padding: 14px 0;
-  border: none;
+button{
   border-radius: 4px;
   color: white;
   text-align: center;
   font-size: 17px;
-  cursor: pointer;
+  cursor: pointer;  
+}
+.buttons button {
+  padding: 14px 0;
+  border: none;
+
 }
 .buttons button svg {
   font-size: 20px;

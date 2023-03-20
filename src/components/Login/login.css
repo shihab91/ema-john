@@ -52,6 +52,7 @@
   padding: 10px;
   font-size: 18px;
 }
+
 button[type="submit"] {
   width: 415px;
   height: 55px;
@@ -66,4 +67,8 @@ button[type="submit"] {
   font-weight: 500;
   margin-top: 22px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+button[type="submit"]:active{
+  transform: scale(0.9);
 }

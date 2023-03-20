@@ -1,10 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/UserContext";
 import "./login.css";
 const Login = () => {
+  const { user, signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (password.length < 6) {
+      setError("password should be 6 characters or more");
+    }
+    signIn(email, password)
+      .then((result) => {
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((err) => console.log(err.message));
   };
   return (
     <div className="form-container container">

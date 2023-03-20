@@ -15,3 +15,8 @@
 a{
   color: #646cff;
 }
+
+.text-error{
+  color: red;
+  margin-top: 8px;
+}
