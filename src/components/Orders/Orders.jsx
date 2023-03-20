@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { RiArrowRightLine } from "react-icons/ri";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { removeFromDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
@@ -7,6 +8,7 @@ import "./orders.css";
 const Orders = () => {
   const { initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
+  const navigate = useNavigate();
   const handleRemoveItem = (id) => {
     const remainingProducts = cart.filter((item) => item.id !== id);
     removeFromDb(id);
@@ -32,7 +34,11 @@ const Orders = () => {
         )}
       </div>
       <div className="cart-container">
-        <Cart cart={cart} setCart={setCart} />
+        <Cart cart={cart} setCart={setCart}>
+          <button onClick={() => navigate("/shipping")}>
+            shipping <RiArrowRightLine />
+          </button>
+        </Cart>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { RiArrowRightLine } from "react-icons/ri";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -7,6 +8,7 @@ import "./shop.css";
 const Shop = () => {
   const { products } = useLoaderData();
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const storedCart = getStoredCart();
     const savedCart = [];
@@ -47,7 +49,11 @@ const Shop = () => {
         })}
       </div>
       <div className="cart-container">
-        <Cart cart={cart} setCart={setCart} />
+        <Cart cart={cart} setCart={setCart}>
+          <button onClick={() => navigate("/orders")}>
+            Review Order <RiArrowRightLine />
+          </button>
+        </Cart>
       </div>
     </div>
   );
