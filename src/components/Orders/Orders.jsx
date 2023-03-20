@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { removeFromDb } from "../../../utilities/fakedb";
+import { removeFromDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import "./orders.css";
@@ -25,7 +25,7 @@ const Orders = () => {
         {cart.length === 0 && (
           <h2>
             No Items For Review. Please{" "}
-            <Link style={{ color: "blue", textDecoration: "underline" }} to="/">
+            <Link style={{ textDecoration: "underline" }} to="/">
               Shop More
             </Link>
           </h2>

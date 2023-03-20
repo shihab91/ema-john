@@ -1,7 +1,7 @@
 import React from "react";
 import { RiDeleteBin4Line, RiArrowRightLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { deleteShoppingCart } from "../../../utilities/fakedb";
+import { deleteShoppingCart } from "../../utilities/fakedb";
 import "./cart.css";
 const Cart = ({ cart, setCart }) => {
   const navigate = useNavigate();
